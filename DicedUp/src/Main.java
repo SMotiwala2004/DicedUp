@@ -3,8 +3,10 @@
   import java.util.Scanner;
 
 public class Main {
+  
     static Scanner sc = new Scanner(System.in);
     static final String SAVE_DIR = "saves";
+  
     public static void main(String[] args) {
         File SD = new File(SAVE_DIR);
         if(!SD.exists()) {
@@ -76,11 +78,13 @@ public class Main {
         if(savedFiles == null || savedFiles.length == 0) {
             System.out.println("There are no saved files");
         }
+      
         //List the saves currently available
         System.out.println("---------Available Saves---------");
         for (int i = 0; i < savedFiles.length; i++) {
             System.out.println(i + 1 + ")" +savedFiles[i]);
         }
+      
         //Store the choice of which save file to delete
         System.out.println("Enter the number of the save file you like to delete.");
         int delete = Integer.parseInt(sc.nextLine()) - 1;
@@ -88,6 +92,7 @@ public class Main {
         if(delete < 0 || delete >= savedFiles.length) {
             System.out.println("Invalid Choice.");
         }
+      
         //Confirmation code to delete the save file
         System.out.println("Are you sure you would like to delete the save?\n(Y/N)");
         String confirm = sc.nextLine();
@@ -95,6 +100,7 @@ public class Main {
             System.out.println("Cancelling");
             return;
         }
+      
         //Code to delete the save file
         String saveFilePath = SAVE_DIR + File.separator + savedFiles[delete];
         File saveFile = new File(saveFilePath);
@@ -108,18 +114,22 @@ public class Main {
     private static void loadSave() {
         File SD = new File(SAVE_DIR);
         String[] savedFiles = SD.list(((dir, name) -> name.endsWith(".txt")));
+      
         //Check if the directory is existent or not
         if (savedFiles == null || savedFiles.length == 0) {
             System.out.println("No saves have been found");
             return;
         }
+      
         System.out.println("---------Available Saves---------");
         //Iterate through and list each saved file and its listed number
         for (int i = 0; i < savedFiles.length; i++) {
             System.out.println(i + 1 + ")" + savedFiles[i]);
         }
+      
         System.out.println("Enter the number of the save file you would like to load.");
         int load = Integer.parseInt(sc.nextLine()) - 1;
+      
         //Check Parameters
         if(load < 0 || load >= savedFiles.length) {
             System.out.println("Invalid Choice.");
@@ -127,6 +137,7 @@ public class Main {
         }
 
         String saveFilePath = SAVE_DIR + File.separator + savedFiles[load];
+      
         try(BufferedReader reader = new BufferedReader(new FileReader(saveFilePath))) {
           //Load player data
           Player p  = new Player();
@@ -155,6 +166,7 @@ public class Main {
 
     private static void newSave() {
         Player p = new Player();
+      
         try {
             System.out.println("Enter a name for your save file");
             String saveFileName = sc.nextLine();
@@ -165,10 +177,13 @@ public class Main {
                 System.out.println("A save file with this current name already exists.");
                 return;
             }
+          
             System.out.println("Enter your player name");
             String playerName = sc.nextLine();
+          
             //set the inputted player name
             p.setPlayerName(playerName);
+          
             try(BufferedWriter writer = new BufferedWriter(new FileWriter(saveFilePath))) {
                 //Write all statistics of the player to the save file
                 writer.write(p.getPlayerName() + "\n"); // Save player's name
@@ -177,6 +192,7 @@ public class Main {
                 writer.write(p.getEXP() + "\n");        // Save player's experience points
                 writer.write(p.getAttackPower() + "\n");// Save player's attack power
                 System.out.println("Player has been created and saved successfully as " + saveFileName + ".txt.");
+              
             } catch (IOException e) {
                 System.out.println("Error saving game" + e.getMessage());
             }
