@@ -1,7 +1,9 @@
 public class Enemy {
+
     private int health;
     private int level;
     private int attackPower;
+
     public Enemy() {
         this.health = 50;
         this.level = 1;

@@ -23,29 +23,29 @@ public class Player {
         return health;
     }
     //Set Health
-    public int void setHealth(int health) {
+    public void setHealth(int health) {
             this.health = health;
     }
     //Retrieve the level of player
     public int getLevel() {
         return level;
     }
-    public int void setLevel(int level) {
-            this.level = level
+    public void setLevel(int level) {
+            this.level = level;
     }
     //Retrieve the Experience Points of player
     public int getEXP(){
         return exp;
     }
     //Set EXP
-    public int void setEXP(int exp) {
-        this.exp = exp
+    public void setEXP(int exp) {
+        this.exp = exp;
     }
     public int getAttackPower() {
             return attackPower;
         }
     //Set Attack Power
-    public int void setAttackPower(int attackPower) {
+    public void setAttackPower(int attackPower) {
             this.attackPower = attackPower;
     }
     //Get Player Name
@@ -53,7 +53,7 @@ public class Player {
             return playerName;
     }
     //Set Player Name
-    public String void setPlayerName(String playerName) {
+    public void setPlayerName(String playerName) {
             this.playerName = playerName;
     }
 }

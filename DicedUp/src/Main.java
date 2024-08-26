@@ -17,7 +17,7 @@ public class Main {
          MainMenu();
     }
 
-    private static void MainMenu() {
+    public static void MainMenu() {
         while(true) {
             System.out.println("""
                     What would you like to do today?
@@ -31,11 +31,26 @@ public class Main {
 
             // Receive the UserInput
             switch (userInput) {
-                case "1" -> newSave();
-                case "2" -> loadSave();
-                case "3" -> deleteSave();
-                case "4" -> howTo();
-                case "5" -> exitGame();
+                case "1" -> {
+                    newSave();
+                    return;
+                }
+                case "2" -> {
+                    loadSave();
+                    return;
+                }
+                case "3" -> {
+                    deleteSave();
+                    return;
+                }
+                case "4" -> {
+                    howTo();
+                    return;
+                }
+                case "5" -> {
+                    exitGame();
+                    return;
+                }
                 default -> System.out.println("Invalid Input. Pick an appropriate option");
             }
 
@@ -57,7 +72,7 @@ public class Main {
     private static void deleteSave() {
         File SD = new File(SAVE_DIR);
         String[] savedFiles = SD.list((dir, name) -> name.endsWith(".txt"));
-        //Parameters to check if any save files existe
+        //Parameters to check if any save files exists
         if(savedFiles == null || savedFiles.length == 0) {
             System.out.println("There are no saved files");
         }
