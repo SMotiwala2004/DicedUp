@@ -2,7 +2,7 @@
 Text-Based RPG game
 
 This Project uses the following technologies
-- Java, File Input / Output, Object-Oriented Programming
+- Java, File Input / Output, Object-Oriented Programming, Data Structures and Algorithms
 
 - The game follows a narrative of a player who can explore, fight, and level up. The twist implemented into this game is that in the combat sequences, there's a dice that can change the outcome of the fight. 
 - The exploring in this game isn't visual as it's a text-based game created to work on personal experience of user input, Game Logic, Code organization, and File handling.
