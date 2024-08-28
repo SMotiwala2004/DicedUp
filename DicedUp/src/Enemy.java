@@ -3,20 +3,46 @@ public class Enemy {
     private int health;
     private int level;
     private int attackPower;
+    private String Name;
 
-    public Enemy() {
-        this.health = 50;
-        this.level = 1;
-        this.attackPower = 15;
+    public Enemy(int health, int level, int attackPower, String Name) {
+        this.health = health;
+        this.level = level;
+        this.attackPower = attackPower;
+        this.Name = Name;
+    }
+
+    public Enemy(int level, String name) {
+        this((int)(level*10),level, (int) (level*2.5),name);
+    }
+    public void setName(String Name) {
+        this.Name = Name;
+    }
+    // Setter methods
+    //Set Health
+    public void addHealth(int health) {
+        this.health += health;
     }
     public void setHealth(int health) {
         this.health = health;
     }
-    public void setLevel(int level) {
-        this.level = level;
+    //Set Level
+    // Getters
+    //Get Health
+    public int getHealth() {
+        return health;
     }
-    public void setAttackPower(int attackPower) {
-        this.attackPower = attackPower;
+    //Get Level
+    public int getLevel() {
+        return level;
     }
-
+    //Get Attack Power
+    public int getAttackPower() {
+        return attackPower;
+    }
+    //Get Enemy Name
+    public String getName() {
+        return Name;
+    }
 }
+

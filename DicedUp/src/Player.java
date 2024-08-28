@@ -4,10 +4,11 @@ public class Player {
      private int attackPower;
      private int exp;
      private String playerName;
+
         //Set foundation of player stats
         public Player(){
         this.health = 100;
-        this.level = 1;
+        this.level = 15;
         this.attackPower = 15;
         this.exp = 0;
     }
@@ -15,7 +16,7 @@ public class Player {
     public void LevelUp() {
         this.level++;
         this.attackPower += 2;
-        this.exp = 0;
+        this.exp = exp-100;
         this.health = 105;
     }
     //Retrieve the health of player
@@ -23,8 +24,8 @@ public class Player {
         return health;
     }
     //Set Health
-    public void setHealth(int health) {
-            this.health = health;
+    public void addHealth(int health) {
+            this.health += health;
     }
     //Retrieve the level of player
     public int getLevel() {
@@ -37,16 +38,19 @@ public class Player {
     public int getEXP(){
         return exp;
     }
-    //Set EXP
-    public void setEXP(int exp) {
-        this.exp = exp;
+    //add EXP
+    public void addEXP(int exp) {
+        this.exp += exp;
+    }
+    public void setExp(int exp) {
+            this.exp = exp;
     }
     public int getAttackPower() {
             return attackPower;
         }
     //Set Attack Power
-    public void setAttackPower(int attackPower) {
-            this.attackPower = attackPower;
+    public void addAttackPower(int attackPower) {
+            this.attackPower += attackPower;
     }
     //Get Player Name
     public String getPlayerName() {
@@ -55,5 +59,8 @@ public class Player {
     //Set Player Name
     public void setPlayerName(String playerName) {
             this.playerName = playerName;
+    }
+    public void setHealth(int health){
+            this.health = health;
     }
 }
